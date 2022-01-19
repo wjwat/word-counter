@@ -36,7 +36,7 @@ function numberOfOccurrencesInText(word, text) {
 
 function boldPassage(word, text) {
   if (noInputtedWord(word, text)) {
-    return 0;
+    return '';
   }
   let htmlString = "<p>";
   let textArray = text.split(" ");
@@ -54,7 +54,6 @@ function boldPassage(word, text) {
 }
 
 // UI Logic
-
 $(document).ready(function () {
   $("form#word-counter").submit(function (event) {
     event.preventDefault();
@@ -69,3 +68,87 @@ $(document).ready(function () {
     $("#bolded-passage").html(boldPassage(word, passage));
   });
 });
+
+
+let s = "Hi there hey yo Hi hi yay yo whoa there whoa... yay!";
+//let s = 'HI hi hI Hi'
+let uniqueWordsInS = [];
+
+s.split(' ').forEach(function(word) {
+  if (!uniqueWordsInS.includes(word.toLowerCase())) {
+    uniqueWordsInS.push(word.toLowerCase())
+  }
+})
+
+console.log(uniqueWordsInS);
+
+let wordsArray = [];
+
+uniqueWordsInS.forEach(function(word) {
+  wordsArray.push([numberOfOccurrencesInText(word, s), word])
+})
+
+wordsArray.sort(function(a, b) {
+  if (b[0] > a[0]) {
+    return 1;
+  } else {
+    return 0;
+  }
+})
+
+console.log(wordsArray[0], wordsArray[1], wordsArray[2])
+
+
+// let arr1 = [[2, 'hi'], [1, 'bye'], [5, 'shit'], [1000, 'blah']]
+// let copy = [...arr1];
+
+// console.log(arr1);
+
+// copy.sort(function(a, b) {
+//   return b[0] - a[0];
+// })
+
+// console.log(copy)
+
+
+
+// thirdArray = [counted + "string", ]
+// let countedWords, counterOfNumberOfOccurances = [];
+
+// let z = [['a', 1], ['b', 2]]
+
+// z.includes(['a', 1])
+
+// s.split(' ').forEach(function(word) {
+//   if (countedWords.includes(word)) {
+//     counterOfNumberOfOccurances[countedWords.indexOf(word)] += 1;
+//   } else {
+//     countedWords.push(word);
+//     counterOfNumberOfOccurances.push(1)
+//   }
+// })
+
+// console.log(countedWords)
+// console.log(counterOfNumberOfOccurances)
+
+// break string into Array
+// for each word in array count number of occurences
+//   if # of occurences is greater than 0
+
+// // Pseudo Code
+// arrayOfStrings = ['a', 'b', 'c', ...]
+
+// loop over arrayOfStrings
+//   item 
+
+
+
+//   largeString  broken into small string array
+
+// for the first word of the array, check all the other words in the arrays and match, increase counter each time
+
+// next increase the index number and loop again
+
+// when index reaches (length) break out and do not continue
+
+// Return 
