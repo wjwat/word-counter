@@ -64,5 +64,8 @@ $(document).ready(function () {
     const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
     $("#total-count").html(wordCount);
     $("#selected-count").html(occurrencesOfWord);
+
+    // New line of code below.
+    $("#bolded-passage").html(boldPassage(word, passage));
   });
 });
