@@ -70,7 +70,7 @@ $(document).ready(function () {
 });
 
 
-let s = "Hi there hey yo Hi hi yay yo whoa there whoa... yay!";
+let s = "Hi there hey yo Hi hi yay yo whoa there 89 whoa... yay!";
 //let s = 'HI hi hI Hi'
 let uniqueWordsInS = [];
 
@@ -84,17 +84,25 @@ console.log(uniqueWordsInS);
 
 let wordsArray = [];
 
+// test pass 
 uniqueWordsInS.forEach(function(word) {
   wordsArray.push([numberOfOccurrencesInText(word, s), word])
 })
 
-wordsArray.sort(function(a, b) {
-  if (b[0] > a[0]) {
-    return 1;
-  } else {
-    return 0;
-  }
-})
+sortedWordsArray = sortArrayAscendingTwoItems(wordsArray)
+
+// test pass in arry of [1, b], [2, c], [99, d] ....
+// result should be [99, d], [2, c]
+function sortArrayAscendingTwoItems(arr) {
+  let x = [...arr];
+  return x.sort(function(a, b) {
+    if (b[0] > a[0]) {
+      return 1;
+    } else {
+      return 0;
+    }
+  })
+}
 
 console.log(wordsArray[0], wordsArray[1], wordsArray[2])
 
